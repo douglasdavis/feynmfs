@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{scrextend}
+\usepackage{amsmath}
+\usepackage{feynmp-auto}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\standaloneconfig{crop=true,border={1cm,1cm,1cm,1cm}}
+\begin{document}
+\begin{fmffile}{ttWfmf}
+  \begin{fmfgraph*}(130,80)
+    \fmfstraight
+    \fmfleft{i1,i2}
+    \fmfright{o1,o2,o3}
+    \fmflabel{$\overline{d}$}{i2}
+    \fmflabel{$u$}{i1}
+    \fmf{fermion}{i1,v1}
+    \fmf{fermion,label=$d$,label.side=right}{v1,v2}
+    \fmf{fermion}{v2,i2}
+    \fmf{gluon,label=$g$,label.dist=10}{v3,v2}
+    \fmf{fermion}{o3,v3}
+    \fmf{fermion}{v3,o2}
+    \fmf{boson}{v1,o1}
+    \fmflabel{$W^+$}{o1}
+    \fmflabel{$t$}{o2}
+    \fmflabel{$\overline{t}$}{o3}
+    \fmfforce{(0.3w,0.2h)}{v1}
+    \fmfforce{(0.3w,0.8h)}{v2}
+    \fmfforce{(0.7w,0.8h)}{v3}
+    \fmfforce{(1.0w,0.6h)}{o2}
+  \end{fmfgraph*}
+\end{fmffile}
+\end{document}

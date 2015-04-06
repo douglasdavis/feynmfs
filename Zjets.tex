@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\usepackage{scrextend}
+\usepackage{amsmath}
+\usepackage{feynmp-auto}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\standaloneconfig{crop=true,border={1cm,1cm,1cm,1cm}}
+\begin{document}
+\begin{fmffile}{Zjetsfmf}
+  \begin{fmfgraph*}(80,80)
+    \fmfstraight
+    \fmfleftn{i}{2}\fmfrightn{o}{3}
+    \fmf{fermion}{i2,v2,v1,i1}
+    \fmf{gluon}{v1,o1}
+    \fmf{boson,label=$Z$,label.dist=7}{v2,v3}
+    \fmf{fermion}{o3,v3,o2}
+    \fmfforce{(.35w,.25h)}{v1}
+    \fmfforce{(.35w,.75h)}{v2}
+    \fmfforce{(.70w,.85h)}{v3}
+    \fmfforce{(1.0w,.70h)}{o2}
+    \fmflabel{$q$}{i1}
+    \fmflabel{$\overline{q}$}{i2}
+    \fmflabel{$g$}{o1}
+    \fmflabel{$\mu^+/e^+$}{o3}
+    \fmflabel{$\mu^+/e^-$}{o2}
+  \end{fmfgraph*}
+\end{fmffile}
+
+\end{document}
+
+\begin{fmfgraph*}(50,80)
+  \fmfstraight
+  \fmfleftn{i}{2}\fmfrightn{o}{3}
+  \fmflabel{$g$}{i1}\fmflabel{$g$}{i2}
+  \fmflabel{$t$}{o3}\fmflabel{$\overline{t}$}{o1}\fmflabel{$Z$}{o2}
+  \fmf{gluon,label=$g$,label.dist=10}{v1,v2}
+  \fmf{gluon}{i1,v1,i2}
+  \fmf{fermion}{o1,v3,v2,o3}
+  \fmffreeze
+  \fmf{boson}{v3,o2}
+  \fmfforce{(0.3w,0.5h)}{v1}
+  \fmfforce{(0.7w,0.5h)}{v2}
+  \fmfforce{(0.85w,0.25h)}{v3}
+\end{fmfgraph*}
+

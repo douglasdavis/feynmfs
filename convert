@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+inkscape --without-gui --file=$1 --export-plain-svg=$2
