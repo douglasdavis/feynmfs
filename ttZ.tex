@@ -24,25 +24,3 @@
   \end{fmfgraph*}
 \end{fmffile}
 \end{document}
-
-
-\begin{fmfgraph*}(130,80)
-  \fmfstraight
-  \fmfleft{i1,i2}
-  \fmfright{o1,o2,o3}
-  \fmflabel{$\overline{d}$}{i2}
-  \fmflabel{$u$}{i1}
-  \fmf{fermion}{i1,v1}
-  \fmf{fermion,label=$d$,label.side=right}{v1,v2}
-  \fmf{fermion}{v2,i2}
-  \fmf{gluon,label=$g$,label.dist=10}{v3,v2}
-  \fmf{fermion}{o3,v3}
-  \fmf{fermion}{v3,o2}
-  \fmf{boson}{v1,o1}
-  \fmflabel{$W^+$}{o1}
-  \fmflabel{$t$}{o2}
-  \fmflabel{$\overline{t}$}{o3}
-  \fmfforce{(0.3w,0.3h)}{v1}
-  \fmfforce{(0.3w,0.7h)}{v2}
-  \fmfforce{(0.7w,0.7h)}{v3}
-\end{fmfgraph*}
