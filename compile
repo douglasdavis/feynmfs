@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 lualatex ttW.tex
-for h in *mp; do mpost $h; done
-lualatex ttW.tex
-
+lualatex Zjets_to_ll.tex
 lualatex ttZ.tex
-for h in *mp; do mpost $h; done
-lualatex ttZ.tex
-
 lualatex Zjets.tex
+
 for h in *mp; do mpost $h; done
+
+lualatex ttW.tex
+lualatex ttZ.tex
+lualatex Zjets_to_ll.tex
 lualatex Zjets.tex

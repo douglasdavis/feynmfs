@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rm -rf *.log *.aux *.1 *.t1 *.mp *.pdf

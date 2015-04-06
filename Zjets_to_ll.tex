@@ -6,17 +6,23 @@
 \usepackage{amssymb}
 \standaloneconfig{crop=true,border={1cm,1cm,1cm,1cm}}
 \begin{document}
-\begin{fmffile}{Zjetsfmf}
+\begin{fmffile}{Zjetsllfmf}
   \begin{fmfgraph*}(80,80)
     \fmfstraight
-    \fmfleftn{i}{2}\fmfrightn{o}{2}
+    \fmfleftn{i}{2}\fmfrightn{o}{3}
     \fmf{fermion}{i1,v1,v2,i2}
     \fmf{gluon}{v1,o1}
-    \fmf{boson}{v2,o2}
+    \fmf{boson,label=$Z$,label.dist=7}{v2,v3}
+    \fmf{fermion}{o3,v3,o2}
+    \fmfforce{(.35w,.25h)}{v1}
+    \fmfforce{(.35w,.75h)}{v2}
+    \fmfforce{(.70w,.85h)}{v3}
+    \fmfforce{(1.0w,.70h)}{o2}
     \fmflabel{$q$}{i1}
     \fmflabel{$\overline{q}$}{i2}
-    \fmflabel{$Z$}{o2}
     \fmflabel{$g$}{o1}
+    \fmflabel{$\ell^+$}{o3}
+    \fmflabel{$\ell^-$}{o2}
   \end{fmfgraph*}
 \end{fmffile}
 \end{document}
