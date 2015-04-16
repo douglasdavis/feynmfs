@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{feynmp-auto}
+\newcommand{\marrow}[5]{%
+  \fmfcmd{style_def marrow#1
+    expr p = drawarrow subpath (1/4, 3/4) of p shifted 6 #2 withpen pencircle scaled 0.4;
+    label.#3(btex #4 etex, point 0.5 of p shifted 6 #2);
+    enddef;}
+  \fmf{marrow#1,tension=0}{#5}}
+\usepackage{scrextend}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\standaloneconfig{crop=true,border={1cm,1cm,1cm,1cm}}
+
+\begin{document}
+\setlength{\unitlength}{1mm}
+\begin{fmffile}{marrows}
+  \begin{fmfgraph*}(50,30)
+    \fmfleftn{i}{2}
+    \fmfrightn{o}{2}
+    \fmf{fermion}{i1,v1,o1}
+    \fmf{fermion}{i2,v2,o2}
+    \fmf{photon,label=$\gamma$}{v1,v2}
+    \fmfdotn{v}{2}
+    \fmflabel{$e^-$}{i1}
+    \fmflabel{$e^-$}{o1}
+    \fmflabel{$\mu^-$}{i2}
+    \fmflabel{$\mu^-$}{o2}
+    % Momentum arrows
+    \marrow{a}{down}{bot}{$p_1$}{i1,v1}
+    \marrow{b}{up}{top}{$p_2$}{i2,v2}
+    \marrow{c}{left}{lft}{$q$}{v1,v2}
+    \marrow{d}{down}{bot}{$p_3$}{v1,o1}
+    \marrow{e}{up}{top}{$p_4$}{v2,o2}
+  \end{fmfgraph*}
+\end{fmffile}
+\end{document}
