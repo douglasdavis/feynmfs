@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
 lualatex ttW.tex
-lualatex Zjets_to_ll.tex
+#lualatex Zjets_to_ll.tex
 lualatex ttZ.tex
-lualatex Zjets.tex
-lualatex with_momentum.tex
+#lualatex Zjets.tex
+#lualatex with_momentum.tex
+lualatex ttZ2.tex
 
 for h in *mp; do mpost $h; done
 
 lualatex ttW.tex
 lualatex ttZ.tex
-lualatex Zjets_to_ll.tex
-lualatex Zjets.tex
-lualatex with_momentum.tex
+#lualatex Zjets_to_ll.tex
+#lualatex Zjets.tex
+#lualatex with_momentum.tex
+lualatex ttZ2.tex
