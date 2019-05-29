@@ -1,0 +1,66 @@
+\documentclass{standalone}
+\usepackage{scrextend}
+\usepackage{amsmath}
+\usepackage{feynmp-auto}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\standaloneconfig{crop=true,border={1cm,1cm,1cm,1cm}}
+\begin{document}
+\begin{fmffile}{ttbar1}
+  \begin{fmfgraph*}(180,180)
+    \fmfleft{i1,iq,i2,ip,i3}
+    \fmfright{y1,y2,y3,o1,f1,o2,o3,o4,f2,o5,x3,x2,x1}
+    \fmfset{arrow_len}{10}
+    % skeleton
+    \fmf{phantom,tension=0.48}{vq,vp}
+    \fmf{phantom}{ip,vp,x1}
+    \fmf{phantom}{iq,vq,y1}
+    \fmffreeze
+    % parton
+    \fmfv{l=$x_1p_1$,l.a=-90,l.d=25}{vp} % cheat: actually a line label
+    \fmfv{l=$x_2p_2$,l.a=90,l.d=25}{vq} % cheat: actually a line label
+    \fmf{gluon,tension=1.6}{vp,v}
+    \fmf{gluon,tension=1.6}{v,vq}
+    % hard process
+    \fmfshift{20 right}{f1,f2}
+    \fmfv{l=$\bar{t}$}{f1}
+    \fmfv{l=$t$}{f2}
+    \fmf{gluon,tension=2,label=$g$,label.side=left}{v,vf}
+    \fmf{fermion,tension=2}{f1,vf,f2}
+    % proton 1
+    \fmfv{l=$\text{p}^+$,l.a=180,l.d=10}{ip}
+    \fmf{phantom}{ip,vp}
+    \fmfi{fermion,l=$p_1$,l.s=left,l.d=8}
+    {vpath (__ip,__vp) scaled 1.01 shifted (-2.4, 6)}
+    \fmfi{fermion}{vpath (__ip,__vp) scaled 1.01 shifted (-2.4, 0)}
+    \fmfi{fermion}{vpath (__ip,__vp) scaled 1.01 shifted (-2.4,-6)}
+    % proton 2
+    \fmfv{l=$\text{p}^+$,l.a=180,l.d=10}{iq}
+    \fmf{phantom}{iq,vq}
+    \fmfi{fermion}{vpath (__iq,__vq) scaled 1.01 shifted (-2.4, 6)}
+    \fmfi{fermion}{vpath (__iq,__vq) scaled 1.01 shifted (-2.4, 0)}
+    \fmfi{fermion,l=$p_2$,l.s=right,l.d=8}
+    {vpath (__iq,__vq) scaled 1.01 shifted (-2.4,-6)}
+    % X 2
+    \fmfshift{25 left}{x1}
+    \fmfshift{20 left}{x2,x3}
+    \fmf{phantom}{vp,x1} % to help \fmfi
+    \fmf{phantom}{vp,x2} % to help \fmfi
+    \fmf{phantom}{vp,x3} % to help \fmfi
+    \fmfi{fermion}{vpath (__vp,__x1) scaled 1.0 shifted ( 0.0, 2.0)}
+    \fmfi{fermion}{vpath (__vp,__x2) scaled 1.0 shifted ( 0.0, 0.0)}
+    \fmfi{fermion}{vpath (__vp,__x3) scaled 1.0 shifted ( 0.0,-2.0)}
+    \fmfblob{25}{vp}
+    % X 2
+    \fmfshift{25 left}{y1}
+    \fmfshift{20 left}{y2,y3}
+    \fmf{phantom}{vq,y1} % to help \fmfi
+    \fmf{phantom}{vq,y2} % to help \fmfi
+    \fmf{phantom}{vq,y3} % to help \fmfi
+    \fmfi{fermion}{vpath (__vq,__y1) scaled 1.0 shifted ( 0.0,-2.0)}
+    \fmfi{fermion}{vpath (__vq,__y2) scaled 1.0 shifted ( 0.0, 0.0)}
+    \fmfi{fermion}{vpath (__vq,__y3) scaled 1.0 shifted ( 0.0, 2.0)}
+    \fmfblob{25}{vq}
+  \end{fmfgraph*}
+\end{fmffile}
+\end{document}
